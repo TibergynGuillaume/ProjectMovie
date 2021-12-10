@@ -145,7 +145,7 @@ function showDetails(data) {
         details.classList.add("u-hide-all");
         topbar.classList.remove("u-hide-all"); 
     
-      }, 500);
+      }, 250);
       overview.classList.remove("u-hide-all");
       // details.classList.remove("u-hide-all__animated");
       // details.classList.add("u-hide-all");
