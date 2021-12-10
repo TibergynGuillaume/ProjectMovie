@@ -29,13 +29,14 @@ function showDetails(data) {
       </div>
 
       <h1>${data.Title}</h1>
-      <p>${data.Year} ${data.Runtime}</p>
-      <p>${data.Language} - ${data.Country}</p>
-      <p>Actors: ${data.Actors}</p>
-      <p>Writer: ${data.Writer}</p>
-      <p>${data.Plot}</p>
-
-      <p>Awards: ${data.Awards}</p>
+      <div class="c-details-card-content__text">
+        <p>${data.Year} ${data.Runtime}</p>
+        <p>${data.Language} - ${data.Country}</p>
+        <p>Actors: ${data.Actors}</p>
+        <p>Writer: ${data.Writer}</p>
+        <p>${data.Plot}</p>
+        <p>Awards: ${data.Awards}</p>
+      </div>
 
       <div class="c-details-card-ratings">
         <h3>Ratings</h3>

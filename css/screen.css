@@ -10,6 +10,7 @@
     --global-color-background: #171717;
     --global-color-background-detail: #E2E2E2;
     --global-color-accent: #333340;
+    --global-color-stars: #EFCE4A;
 
     --global-baseline: calc(1rem / 4); 
     --global-whitespace-xxs: var(--global-baseline); /* = 4px */
@@ -21,12 +22,14 @@
     --global-whitespace-xxl: calc(var(--global-baseline) * 7); /* = 28px */
     --global-whitespace-xxxl: calc(var(--global-baseline) * 8); /* = 32px */
 
+    --global-fontsize-sm: calc(var(--global-baseline) * 3);
     --global-fontsize: calc(var(--global-baseline) * 4);
     --global-fontsize-md: calc(var(--global-baseline) * 6);
     --global-fontsize-lg: calc(var(--global-baseline) * 8);
-    --global-fontsize-xl: calc(var(--global-baseline) * 10);
-    --global-fontsize-xxl: calc(var(--global-baseline) * 12);
-    --global-fontsize-xxxl: calc(var(--global-baseline) * 14);
+    --global-fontsize-xl: calc(var(--global-baseline) * 9);
+    --global-fontsize-xxl: calc(var(--global-baseline) * 10);
+    --global-fontsize-xxxl: calc(var(--global-baseline) * 12);
+    --global-fontsize-xxxxl: calc(var(--global-baseline) * 14);
 
 }
 
@@ -42,10 +45,11 @@
 */
 
 html {
-    font-size: 16px;
+    font-size: var(--global-fontsize);
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
-    font-family: 'Work Sans', sans-serif;
+    font-family: darkmode-on, sans-serif;
+    font-weight: 400;
+    font-style: normal;
     box-sizing: border-box;
     background-color: var(--global-color-background);
     color: var(--global-color-front);
@@ -54,7 +58,7 @@ html {
 }
 
 body {
-    padding: 0 32px;
+    padding: 0 var(--global-whitespace-xxxl);
 }
 
 *,
@@ -105,30 +109,30 @@ h3 {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: var(--global-fontsize-xl);
     line-height: 48px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-xl);
 }
 
 h2 {
-    font-size: 32px;
+    font-size: var(--global-whitespace-lg);
     line-height: 40px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-xl);
 }
 
 h3 {
-    font-size: 26px;
+    font-size: var(--global-fontsize-md);
     line-height: 32px;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-xl);
 }
 
 h4,
 h5,
 h6 {
-    font-size: 16px;
+    font-size: var(--global-fontsize);
     font-weight: 600;
-    line-height: 24px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-fontsize)*1.5);
+    margin: 0 0 var(--global-whitespace-xl);
 }
 
 p,
@@ -138,12 +142,12 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-xl);
 }
 
 ul,
 ol {
-    padding-left: 24px;
+    padding-left: var(--global-whitespace-xl);
 }
 
 li ul,
@@ -151,22 +155,10 @@ li ol {
     margin-bottom: 0;
 }
 
-blockquote {
-    font-style: normal;
-    font-size: 23px;
-    line-height: 32px;
-    margin: 0 0 24px;
-}
-
-blockquote * {
-    font-size: inherit;
-    line-height: inherit;
-}
-
 figcaption {
     font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: var(--global-fontsize-sm);
+    line-height: calc(var(--global-fontsize-sm)*1.5);
     margin-top: 8px;
 }
 
@@ -204,7 +196,7 @@ select {
 }
 
 input::placeholder {
-    color: gray;
+    color: rgb(85, 27, 27);
 }
 
 /*------------------------------------*\
@@ -314,6 +306,10 @@ input::placeholder {
     z-index: 10;
 }
 
+.c-details-card-content__text{
+    padding: 0 16px 0 16px;
+}
+
 .c-details-card__close {
     display: flex;
     padding-right: 32px;
@@ -370,12 +366,22 @@ input::placeholder {
 .c-overview__item {
     box-shadow: var(--global-box-shadow);
     justify-self: center;
+    transition: all .2s ease-in-out;
+}
+
+.c-overview__item:hover {
+    transform: scale(1.08);
 }
 
 .c-poster__overview-title{
     color: white;
     margin: var(--global-whitespace-sm) auto ;
 }
+
+.c-poster__overview {
+    max-height: 23rem;
+}
+
 
 @media screen and (min-width: 31em) {
     .c-overview {
@@ -408,10 +414,6 @@ input::placeholder {
     }
 }
 
-.c-poster__overview {
-    max-height: 23rem;
-}
-
 /*
     Star ratings
 */
@@ -435,7 +437,7 @@ input::placeholder {
 }
 
 .stars__star-icon{
-    stroke:#EFCE4A;
+    stroke:var(--global-color-stars);
     stroke-width: 2px;
     fill: transparent;
     transition: .1s all;
@@ -477,12 +479,12 @@ input::placeholder {
 }
 
 .stars__checkbox:checked + .stars__star > .stars__star-icon {
-    fill: #EFCE4A;
+    fill: var(--global-color-stars);
     filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));    
 }
 
 .stars__checkbox:checked ~ .stars__star > .stars__star-icon {
-    fill: #EFCE4A;
+    fill: var(--global-color-stars);
     filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));
 }
 
