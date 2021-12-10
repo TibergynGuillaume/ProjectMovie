@@ -275,7 +275,7 @@ input::placeholder {
     padding: calc(var(--size) * 3) calc(var(--size) * 2.5);
     box-sizing: border-box;
     animation-name: showOverview;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
 }
 
 /*
@@ -315,7 +315,7 @@ input::placeholder {
     min-height: 100vh;
     margin: 120vw auto 0 -20px;   
     animation-name: showItems;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
 }
 
 .c-poster__detail {
@@ -391,7 +391,7 @@ input::placeholder {
     margin: var(--global-whitespace-xxxl) auto var(--global-whitespace-md) auto;
     max-width: 90rem;
     animation-name: showOverview;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
 }
 
 .c-overview__item {
@@ -553,7 +553,7 @@ input::placeholder {
 
 .u-hide-all__animated {
     animation-name: ItemsDisappear;
-    animation-duration: 0.5s;
+    animation-duration: 0.25s;
 }
 
 @media (min-width: 31em) {
