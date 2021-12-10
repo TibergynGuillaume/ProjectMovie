@@ -5,7 +5,7 @@ const get = (url) => fetch(url).then((r) => r.json());
 // 2 Aan de hand van een longitude en latitude gaan we de yahoo wheater API ophalen.
 const getAPI = async (id) => {
   // Eerst bouwen we onze url op
-  const endPoint = `http://www.omdbapi.com/?i=${id}&apikey=${apiKey}`;
+  const endPoint = `https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`;
   // Met de fetch API proberen we de data op te halen.
   const movieResponse = await fetch(`${endPoint}`);
 
