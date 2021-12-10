@@ -135,9 +135,23 @@ function showDetails(data) {
 
   closeButton = document.querySelector('.js-close');
   closeButton.addEventListener('click', function () {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      details.classList.add("u-hide-all__animated");
+      setTimeout(function (){
+
+        
+        details.classList.remove("u-hide-all__animated");
+        details.classList.add("u-hide-all");
+        topbar.classList.remove("u-hide-all"); 
+    
+      }, 500);
       overview.classList.remove("u-hide-all");
-      topbar.classList.remove("u-hide-all");
-      details.classList.add("u-hide-all");
+      // details.classList.remove("u-hide-all__animated");
+      // details.classList.add("u-hide-all");
+
+      // overview.classList.remove("u-hide-all");
+      // topbar.classList.remove("u-hide-all");      
   })
 }
 

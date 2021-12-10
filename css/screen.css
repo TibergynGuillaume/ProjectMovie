@@ -274,6 +274,8 @@ input::placeholder {
     background-position: 0 var(--size), top left, 0 calc(100% - var(--size)), bottom left, 0 var(--size);
     padding: calc(var(--size) * 3) calc(var(--size) * 2.5);
     box-sizing: border-box;
+    animation-name: showOverview;
+    animation-duration: 1s;
 }
 
 /*
@@ -282,11 +284,38 @@ input::placeholder {
     Website main logo
 */
 
+@keyframes showItems {
+    from {
+        transform: translateY(100px);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+
+@keyframes showOverview {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+
+
+.c-details-hide{
+    display: none;
+}
+
 .c-details-card{
     display: block;
     width: 95vw;
     min-height: 100vh;
     margin: 120vw auto 0 -20px;   
+    animation-name: showItems;
+    animation-duration: 1s;
 }
 
 .c-poster__detail {
@@ -338,7 +367,7 @@ input::placeholder {
         max-width: 216px;
         left: 0;
         right: 0;
-        margin: -40px 40px 0 -40px;
+        margin: -40px 40px 0px -40px;
         border-radius: 12px;
         z-index: 10;
     }
@@ -361,6 +390,8 @@ input::placeholder {
     grid-gap: var(--global-whitespace-lg);
     margin: var(--global-whitespace-xxxl) auto var(--global-whitespace-md) auto;
     max-width: 90rem;
+    animation-name: showOverview;
+    animation-duration: 1s;
 }
 
 .c-overview__item {
@@ -505,6 +536,24 @@ input::placeholder {
 
 .u-hide-all {
     display: none;
+}
+
+@keyframes ItemsDisappear {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+        /* display: block; */
+    }
+    to {
+        transform: translateY(100px);
+        opacity: 0;
+        display: none;
+    }
+} 
+
+.u-hide-all__animated {
+    animation-name: ItemsDisappear;
+    animation-duration: 0.5s;
 }
 
 @media (min-width: 31em) {
