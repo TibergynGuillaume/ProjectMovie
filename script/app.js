@@ -92,10 +92,15 @@ function showDetails(data) {
   </div>
  
   `;
-  document.querySelector('.js-details').innerHTML = detailHTML;
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
+  overview.classList.add("u-hide-all");
+  topbar.classList.add("u-hide-all");
+  details.classList.remove("u-hide-all");
+
+  document.querySelector('.js-details').innerHTML = detailHTML;
+  
   let converted_labels = [];
   let converted_data = [];
   for (const rating of data.Ratings) {
@@ -204,9 +209,9 @@ function listenToSelectPoster(movieId) {
   topbar = document.querySelector(".js-topbar");
 
   console.log(movieId);
-  overview.classList.add("u-hide-all");
-  topbar.classList.add("u-hide-all");
-  details.classList.remove("u-hide-all");
+  // overview.classList.add("u-hide-all");
+  // topbar.classList.add("u-hide-all");
+  // details.classList.remove("u-hide-all");
   getAPI(movieId)
 }
 
