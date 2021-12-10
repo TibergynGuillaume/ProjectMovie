@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="videoContainer">
+      <iframe width="560" height="315" src="https://sttestproject.blob.core.windows.net/video/Mais%202021%20_%20Fendt%201050%20_%20Loonbedrijf%20Jansen%20_%20Claas%20Jaguar%209XX%20_%203X%20Fendt%20_%20John%20Deere%20_%20Krone%20_%204K%20(720p).mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> </iframe>
+    </div>
+
+    <button class="stopbutton">stop</button>
+  </body>
+</html>
+
+<script>
+      let someFunction = function() { videoStopper("videoContainer");  //this will stop the video
+      };
+
+      let videoStopper = function(id) {
+      let containerElement = document.getElementById(id);
+      let iframe_tag = containerElement.querySelector( 'iframe');
+    //   let video_tag = containerElement.querySelector( 'video' );
+      if ( iframe_tag) {
+          var src = video.src;
+			video.src = src;
+      }
+    }
+
+  let button = document.querySelector(".stopbutton");
+  button.addEventListener("click",someFunction);
+</script>

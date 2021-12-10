@@ -1,0 +1,617 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+    --global-color-background: #171717;
+    --global-color-background-detail: #E2E2E2;
+    --global-color-accent: #333340;
+
+    --global-baseline: calc(1rem / 4); 
+    --global-whitespace-xxs: var(--global-baseline); /* = 4px */
+    --global-whitespace-xs: calc(var(--global-baseline) * 2); /* = 8px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 3); /* = 12px */
+    --global-whitespace-md: calc(var(--global-baseline) * 4); /* = 16px */
+    --global-whitespace-lg: calc(var(--global-baseline) * 5); /* = 20px */
+    --global-whitespace-xl: calc(var(--global-baseline) * 6); /* = 24px */
+    --global-whitespace-xxl: calc(var(--global-baseline) * 7); /* = 28px */
+    --global-whitespace-xxxl: calc(var(--global-baseline) * 8); /* = 32px */
+
+    --global-fontsize: calc(var(--global-baseline) * 4);
+    --global-fontsize-md: calc(var(--global-baseline) * 6);
+    --global-fontsize-lg: calc(var(--global-baseline) * 8);
+    --global-fontsize-xl: calc(var(--global-baseline) * 10);
+    --global-fontsize-xxl: calc(var(--global-baseline) * 12);
+    --global-fontsize-xxxl: calc(var(--global-baseline) * 14);
+
+}
+
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: Helvetica, arial, sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
+    background-color: var(--global-color-background);
+    color: var(--global-color-front);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    padding: 0 32px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*
+* Remove text-shadow in selection highlight:
+* https://twitter.com/miketaylr/status/12228805301
+*
+* Customize the background color to match your design.
+*/
+
+
+::selection {
+    background: var(--global-color-front);
+    color: var(--global-color-background);
+    text-shadow: none;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 48px;
+    margin: 0 0 24px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0 0 24px;
+}
+
+h3 {
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0 0 24px;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+    margin: 0 0 24px;
+}
+
+ul,
+ol {
+    padding-left: 24px;
+}
+
+li ul,
+li ol {
+    margin-bottom: 0;
+}
+
+blockquote {
+    font-style: normal;
+    font-size: 23px;
+    line-height: 32px;
+    margin: 0 0 24px;
+}
+
+blockquote * {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+figcaption {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 8px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: LightGrey;
+    margin: 0 0 24px;
+}
+
+a {
+    color: red;
+    outline-color: red;
+    outline-width: medium;
+    outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+    color: red;
+}
+
+a:hover,
+a:focus {
+    color: red;
+}
+
+label,
+input {
+    display: block;
+}
+
+select {
+    width: 100%;
+}
+
+input::placeholder {
+    color: gray;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+.c-topbar {
+    display: flex;
+    font-family: 'Corinthia', cursive;
+    color: white;
+    font-size: var(--global-fontsize-xxxl);
+    margin: 0 -2rem 0 -2rem;
+    justify-content: center;
+
+    --background: var(--global-color-accent);
+    --size: 10px;
+    background-image:
+        linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to right, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to bottom, var(--background) var(--size), transparent var(--size)),
+        linear-gradient(to bottom, transparent var(--size), var(--background) var(--size));
+    background-size: calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), calc(var(--size) * 2) var(--size), 100% calc(100% - var(--size) * 3);
+    background-repeat: repeat-x;
+    background-position: 0 var(--size), top left, 0 calc(100% - var(--size)), bottom left, 0 var(--size);
+    padding: calc(var(--size) * 3) calc(var(--size) * 2.5);
+    box-sizing: border-box;
+}
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-details-card{
+    display: block;
+    width: 95vw;
+    min-height: 100vh;
+    margin: 120vw auto 0 -20px;   
+}
+
+.c-poster__detail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    z-index: 2;
+}
+
+.c-details-card-content {
+    position: relative;
+    padding: 0 var(--global-whitespace-md);
+    border-radius: 12px 12px 0px 0px;
+    background: var(--global-color-background-detail);
+    z-index: 10;
+}
+
+.c-details-card__close {
+    display: flex;
+    padding-right: 32px;
+    padding-top: 32px;
+    justify-content: flex-end;
+}
+
+.c-details-card-ratings{
+    padding: var(--global-whitespace-xxl);
+    background: var(--global-color-accent);
+    border-radius: 12px 12px 0px 0px;
+    color: white;
+}
+
+
+@media screen and (min-width: 31em) {
+    .c-details-card-content { all: unset;}
+    .c-details {
+        margin: 96px auto 0 auto;
+        max-width: 544px;
+    }
+
+    .c-poster__detail {
+        position: relative;
+        float: left;
+        max-width: 216px;
+        left: 0;
+        right: 0;
+        margin: -40px 40px 0 -40px;
+        border-radius: 12px;
+        z-index: 10;
+    }
+
+    .c-details-card{
+        position: relative;
+        max-width: 544px;
+        margin: 0 auto 0 auto;
+        padding: 0 var(--global-whitespace-md);
+        border-radius: 12px 12px 0px 0px;
+        background: var(--global-color-background-detail);
+    }
+
+    .c-details-card-content { all: none;}
+
+}
+
+.c-overview {
+    display: grid;
+    grid-gap: var(--global-whitespace-lg);
+    margin: var(--global-whitespace-xxxl) auto var(--global-whitespace-md) auto;
+    max-width: 90rem;
+}
+
+.c-overview__item {
+    box-shadow: var(--global-box-shadow);
+    justify-self: center;
+}
+
+.c-poster__overview-title{
+    color: white;
+    margin: var(--global-whitespace-sm) auto ;
+}
+
+@media screen and (min-width: 31em) {
+    .c-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .c-overview__item {
+        grid-column: 1 / -1;
+    }
+}
+
+@media screen and (min-width: 46.5em) {
+    .c-overview {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .c-overview__item {
+        grid-column: 1 / -1;
+    }
+}
+
+
+@media screen and (min-width: 62em) {
+    .c-overview {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .c-overview__item {
+        grid-column: 1 / -1;
+    }
+}
+
+.c-poster__overview {
+    max-height: 23rem;
+}
+
+/*
+    Star ratings
+*/
+
+.c-stars{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.stars{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+    height: 15vh;
+}
+
+.stars__star-icon{
+    stroke:#EFCE4A;
+    stroke-width: 2px;
+    fill: transparent;
+    transition: .1s all;
+}
+
+.stars__star{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.stars__checkbox{
+    position: absolute;
+    top: -9999px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.stars__star:hover > .stars__star-icon{
+    /* fill: #EFCE4A; */
+    filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));
+}
+
+.stars__star:hover ~ .stars__star > .stars__star-icon {
+    /* fill: #EFCE4A; */
+    filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));
+}
+
+.stars__checkbox:checked + .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+    filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));    
+}
+
+.stars__checkbox:checked ~ .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+    filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));
+}
+
+
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: Mute
+    Mute with opacity
+*/
+
+.u-muted {
+    opacity: 60%;
+}
+
+.u-hide-all {
+    display: none;
+}
+
+@media (min-width: 31em) {
+    .u-x-span-1-bp1 {
+        grid-column: span 1;
+    }
+}
+
+@media (min-width: 46.5em) {
+    .u-x-span-1-bp2 {
+        grid-column: span 1;
+    }
+}
+
+
+@media (min-width: 62em) {
+
+    .u-x-span-1-bp3 {
+        grid-column: span 1;
+    }
+
+    .u-x-span-3-bp3 {
+        grid-column: span 3;
+    }
+
+    .u-x-span-4-bp3 {
+        grid-column: span 4;
+    }
+
+    .u-x-span-6-bp3 {
+        grid-column: span 6;
+    }
+
+    .u-x-span-8-bp3 {
+        grid-column: span 8;
+    }
+
+    .u-x-span-9-bp3 {
+        grid-column: span 9;
+    }
+
+}
+
+/*------------------------------------*\
+#STATES
+\*------------------------------------*/
+
+/*
+    Change the theme using CSS vars.
+*/
+
+/* Night version: just switch the light and dark vars */
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
