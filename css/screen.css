@@ -31,6 +31,41 @@
     --global-fontsize-xxxl: calc(var(--global-baseline) * 12);
     --global-fontsize-xxxxl: calc(var(--global-baseline) * 14);
 
+    --global-page-color: White;
+    --global-page-backgroundColor: var(--global-color-neutral-xxxx-dark);
+    --global-border-radius: 12px;
+
+    --global-label-color: var(--global-color-neutral-xx-light);
+    --global-placeholder-color: var(--global-color-neutral-dark);
+    --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+    --global-input-color: var(--global-color-neutral-xxxx-light);
+    --global-input-borderColor: var(--global-input-backgroundColor);
+    --global-input-hover-borderColor: var(--global-input-backgroundColor);
+    --global-input-focus-borderColor: var(--global-input-backgroundColor);
+    --global-input-focus-boxShadowColor: var(--global-color-alpha-transparent);
+    --global-input-error-borderColor: var(--global-input-backgroundColor);
+    --global-input-error-boxShadowColor: var(--global-color-error-transparent);
+    
+
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --global-page-color: White;
+        --global-page-backgroundColor: var(--global-color-neutral-xxxx-dark);
+
+        --global-label-color: var(--global-color-neutral-xx-light);
+        --global-placeholder-color: var(--global-color-neutral-dark);
+        --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --global-input-color: var(--global-color-neutral-xxxx-light);
+        --global-input-borderColor: var(--global-input-backgroundColor);
+        --global-input-hover-borderColor: var(--global-input-backgroundColor);
+        --global-input-focus-borderColor: var(--global-input-backgroundColor);
+        --global-input-focus-boxShadowColor: var(--global-color-alpha-transparent);
+        --global-input-error-borderColor: var(--global-input-backgroundColor);
+        --global-input-error-boxShadowColor: var(--global-color-error-transparent);
+    }
 }
 
 
@@ -143,6 +178,7 @@ table,
 address,
 figure {
     margin: 0 0 var(--global-whitespace-xl);
+    font-size: var(--global-fontsize);
 }
 
 ul,
@@ -159,14 +195,14 @@ figcaption {
     font-weight: 400;
     font-size: var(--global-fontsize-sm);
     line-height: calc(var(--global-fontsize-sm)*1.5);
-    margin-top: 8px;
+    margin-top: var(--global-whitespace-xs);
 }
 
 hr {
     border: 0;
     height: 1px;
     background: LightGrey;
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-xl);
 }
 
 a {
@@ -330,7 +366,7 @@ input::placeholder {
 .c-details-card-content {
     position: relative;
     padding: 0 var(--global-whitespace-md);
-    border-radius: 12px 12px 0px 0px;
+    border-radius: var(--global-border-radius) var(--global-border-radius) 0px 0px;
     background: var(--global-color-background-detail);
     z-index: 10;
 }
@@ -349,7 +385,7 @@ input::placeholder {
 .c-details-card-ratings{
     padding: var(--global-whitespace-xxl);
     background: var(--global-color-accent);
-    border-radius: 12px 12px 0px 0px;
+    border-radius: var(--global-border-radius) var(--global-border-radius) 0px 0px;
     color: white;
 }
 
@@ -358,6 +394,7 @@ input::placeholder {
     .c-details-card-content { all: unset;}
     .c-details {
         margin: 96px auto 0 auto;
+
         max-width: 544px;
     }
 
@@ -368,7 +405,7 @@ input::placeholder {
         left: 0;
         right: 0;
         margin: -40px 40px 0px -40px;
-        border-radius: 12px;
+        border-radius: var(--global-border-radius);
         z-index: 10;
     }
 
@@ -377,7 +414,7 @@ input::placeholder {
         max-width: 544px;
         margin: 0 auto 0 auto;
         padding: 0 var(--global-whitespace-md);
-        border-radius: 12px 12px 0px 0px;
+        border-radius: var(--global-border-radius) var(--global-border-radius) 0px 0px;
         background: var(--global-color-background-detail);
     }
 
@@ -449,14 +486,14 @@ input::placeholder {
     Star ratings
 */
 
-.c-stars{
+.c-starratings{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 
-.stars{
+.c-stars{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -467,14 +504,14 @@ input::placeholder {
     margin-right: -32px;
 }
 
-.stars__star-icon{
+.c-stars__star-icon{
     stroke:var(--global-color-stars);
     stroke-width: 2px;
     fill: transparent;
     transition: .1s all;
 }
 
-.stars__star{
+.c-stars__star{
     width: 10vw;
     height: 10vw;
     position: relative;
@@ -483,7 +520,7 @@ input::placeholder {
 }
 
 @media screen and (min-width: 31em) {
-    .stars__star{
+    .c-stars__star{
         width: 50px;
         height: 50px;
         position: relative;
@@ -492,29 +529,29 @@ input::placeholder {
     }
 }
 
-.stars__checkbox{
+.c-stars__checkbox{
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.stars__star:hover > .stars__star-icon{
+.c-stars__star:hover > .c-stars__star-icon{
     /* fill: #EFCE4A; */
     filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));
 }
 
-.stars__star:hover ~ .stars__star > .stars__star-icon {
+.c-stars__star:hover ~ .c-stars__star > .c-stars__star-icon {
     /* fill: #EFCE4A; */
     filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));
 }
 
-.stars__checkbox:checked + .stars__star > .stars__star-icon {
+.c-stars__checkbox:checked + .c-stars__star > .c-stars__star-icon {
     fill: var(--global-color-stars);
     filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));    
 }
 
-.stars__checkbox:checked ~ .stars__star > .stars__star-icon {
+.c-stars__checkbox:checked ~ .c-stars__star > .c-stars__star-icon {
     fill: var(--global-color-stars);
     filter: drop-shadow(0px 0px 20px rgb(239 206 74 / 1));
 }
@@ -536,6 +573,11 @@ input::placeholder {
 
 .u-hide-all {
     display: none;
+}
+
+.u-blur-all{
+    filter: blur(16px);
+    z-index: 1;
 }
 
 @keyframes ItemsDisappear {
