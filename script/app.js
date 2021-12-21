@@ -17,7 +17,7 @@ const getAPI = async (id) => {
 
 function showDetails(data) {
   id = data.imdbID;
-  console.log(`movie id : ${id}`)
+  console.log(`movie id : ${id}`);
   let detailHTML = `
   <div class="c-details">
     
@@ -30,7 +30,7 @@ function showDetails(data) {
 
       <h1>${data.Title}</h1>
       <div class="c-details-card-content__text">
-        <p>${data.Year} ${data.Runtime}</p>
+        <p>${data.Year} - ${data.Runtime}</p>
         <p>${data.Language} - ${data.Country}</p>
         <p>Actors: ${data.Actors}</p>
         <p>Writer: ${data.Writer}</p>
@@ -96,114 +96,111 @@ function showDetails(data) {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 
-  overview.classList.add("u-hide-all");
-  topbar.classList.add("u-hide-all");
-  details.classList.remove("u-hide-all");
+  overview.classList.add('u-hide-all');
+  topbar.classList.add('u-hide-all');
+  details.classList.remove('u-hide-all');
 
   document.querySelector('.js-details').innerHTML = detailHTML;
-  
+
   let converted_labels = [];
   let converted_data = [];
   for (const rating of data.Ratings) {
     converted_labels.push(rating.Source);
     value = rating.Value;
 
-    if(value.endsWith("%")){
+    if (value.endsWith('%')) {
       stringwaarde = parseInt(value.slice(0, -1));
-      waarde = stringwaarde/10;
+      waarde = stringwaarde / 10;
       console.log(`${rating.Source} ${waarde}`);
       converted_data.push(waarde);
     }
 
-    if(value.endsWith("/100")){
+    if (value.endsWith('/100')) {
       stringwaarde = parseInt(value.slice(0, -4));
-      waarde = stringwaarde/10;
+      waarde = stringwaarde / 10;
       console.log(`${rating.Source} ${waarde}`);
       converted_data.push(waarde);
     }
 
-    if(value.endsWith("/10")){
+    if (value.endsWith('/10')) {
       waarde = parseInt(value.slice(0, -3));
       console.log(`${rating.Source} ${waarde}`);
       converted_data.push(waarde);
-    }    
+    }
   }
 
-
-
-  drawChart(converted_labels, converted_data)
+  drawChart(converted_labels, converted_data);
 
   closeButton = document.querySelector('.js-close');
   closeButton.addEventListener('click', function () {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-      details.classList.add("u-hide-all__animated");
-      setTimeout(function (){
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    details.classList.add('u-hide-all__animated');
+    setTimeout(function () {
+      details.classList.remove('u-hide-all__animated');
+      details.classList.add('u-hide-all');
+      topbar.classList.remove('u-hide-all');
+    }, 250);
+    overview.classList.remove('u-hide-all');
+    // details.classList.remove("u-hide-all__animated");
+    // details.classList.add("u-hide-all");
 
-        
-        details.classList.remove("u-hide-all__animated");
-        details.classList.add("u-hide-all");
-        topbar.classList.remove("u-hide-all"); 
-    
-      }, 250);
-      overview.classList.remove("u-hide-all");
-      // details.classList.remove("u-hide-all__animated");
-      // details.classList.add("u-hide-all");
-
-      // overview.classList.remove("u-hide-all");
-      // topbar.classList.remove("u-hide-all");      
-  })
+    // overview.classList.remove("u-hide-all");
+    // topbar.classList.remove("u-hide-all");
+  });
 }
 
 const drawChart = function (labels, data) {
   var options = {
-    series: [{
-    data: data
-  }],
+    series: [
+      {
+        data: data,
+      },
+    ],
     chart: {
-    height: 350,
-    type: 'bar',
-    events: {
-      click: function(chart, w, e) {
-        // console.log(chart, w, e)
-      }
-    }
-  },
-  colors: ['#147AD6', '#147AD6', '#147AD6'],
-  plotOptions: {
-    bar: {
-      columnWidth: '45%',
-      distributed: true,
-    }
-  },
-  dataLabels: {
-    enabled: false
-  },
-  legend: {
-    show: false
-  },
-  xaxis: {
-    categories: labels,
-    labels: {
-      style: {
-        colors: ['#FFFFFF','#FFFFFF','#FFFFFF'],
-        fontSize: '12px'
-      }
-    }
-  },
-  yaxis: {
-    labels: {
-      style: {
-        colors: '#FFFFFF',
-        fontSize: '12px'
-      }
-    }
-  }
+      height: 350,
+      type: 'bar',
+      events: {
+        click: function (chart, w, e) {
+          // console.log(chart, w, e)
+        },
+      },
+    },
+    colors: ['#147AD6', '#147AD6', '#147AD6'],
+    plotOptions: {
+      bar: {
+        columnWidth: '45%',
+        distributed: true,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    legend: {
+      show: false,
+    },
+    xaxis: {
+      categories: labels,
+      labels: {
+        style: {
+          colors: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
+          fontSize: '12px',
+        },
+      },
+    },
+    yaxis: {
+      labels: {
+        style: {
+          colors: '#FFFFFF',
+          fontSize: '12px',
+        },
+      },
+    },
   };
 
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  var chart = new ApexCharts(document.querySelector('#chart'), options);
   chart.render();
-}
+};
 
 function loadOverview(json) {
   let overviewHTML = '';
@@ -219,15 +216,15 @@ function loadOverview(json) {
 }
 
 function listenToSelectPoster(movieId) {
-  overview = document.querySelector(".js-overview");
-  details = document.querySelector(".js-details");
-  topbar = document.querySelector(".js-topbar");
+  overview = document.querySelector('.js-overview');
+  details = document.querySelector('.js-details');
+  topbar = document.querySelector('.js-topbar');
 
   console.log(movieId);
   // overview.classList.add("u-hide-all");
   // topbar.classList.add("u-hide-all");
   // details.classList.remove("u-hide-all");
-  getAPI(movieId)
+  getAPI(movieId);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
