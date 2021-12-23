@@ -380,6 +380,12 @@ input::placeholder {
     padding-right: 32px;
     padding-top: 32px;
     justify-content: flex-end;
+    opacity: .5;
+    transition: all .2s ease-in-out;
+}
+
+.c-details-card__close:hover {
+    opacity: 1;
 }
 
 .c-details-card-ratings{
